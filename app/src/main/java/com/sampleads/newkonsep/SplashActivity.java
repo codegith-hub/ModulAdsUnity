@@ -28,7 +28,7 @@ public class SplashActivity extends AppCompatActivity {
         if (BuildConfig.DEBUG){
             AdsHelper.debugMode(true);
         }
-        AdsHelper.initializeAds(this,1,"1234567",true);
+        AdsHelper.initializeAds(this,BuildConfig.APPLICATION_ID,"1234567",true);
 
         if (AdsHelper.openads){
             OpenAds.LoadOpenAds("ca-app-pub-3940256099942544/9257395921");

@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        AdsHelper.initializeAds(this,1,"1234567",true);
+        AdsHelper.initializeAds(this,BuildConfig.APPLICATION_ID,"1234567",true);
         if (BuildConfig.DEBUG){
             AdsHelper.debugMode(true);
         }

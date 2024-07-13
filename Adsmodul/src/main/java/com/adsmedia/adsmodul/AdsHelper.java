@@ -25,12 +25,12 @@ import java.security.NoSuchAlgorithmException;
 public class AdsHelper {
     public static boolean openads = false;
     public static boolean debugMode;
-    public static void gdpr(Activity activity, Boolean childDirected, int keypos) {
+    public static void gdpr(Activity activity, Boolean childDirected, String keypos) {
     }
 
     public static void initializeAds(Activity activity, int pos) {
     }
-    public static void initializeAds(Activity activity, int pos, String gameId, boolean test) {
+    public static void initializeAds(Activity activity, String pos, String gameId, boolean test) {
         IUnityAdsInitializationListener listener = new IUnityAdsInitializationListener() {
             @Override
             public void onInitializationComplete() {
@@ -46,7 +46,7 @@ public class AdsHelper {
         MasterAdsHelper.initializeAds(activity, pos);
     }
 
-    public static void initializeAds(Activity activity, int pos, String gameId) {
+    public static void initializeAds(Activity activity, String pos, String gameId) {
         IUnityAdsInitializationListener listener = new IUnityAdsInitializationListener() {
             @Override
             public void onInitializationComplete() {

@@ -24,8 +24,9 @@ import java.security.NoSuchAlgorithmException;
 
 public class AdsHelper {
     public static boolean openads = false;
-    public static boolean debugMode;
-    public static void gdpr(Activity activity, Boolean childDirected, String keypos) {
+    public static boolean debugMode = false;
+    public static boolean directData = false;
+    public static void gdpr(Activity activity, Boolean childDirected, String keypos, String gameAppId) {
     }
 
     public static void initializeAds(Activity activity, int pos) {
@@ -46,7 +47,7 @@ public class AdsHelper {
         MasterAdsHelper.initializeAds(activity, pos);
     }
 
-    public static void initializeAds(Activity activity, String pos, String gameId) {
+    public static void initializeAds(Activity activity, String pos, String gameAppId) {
         IUnityAdsInitializationListener listener = new IUnityAdsInitializationListener() {
             @Override
             public void onInitializationComplete() {
@@ -58,7 +59,7 @@ public class AdsHelper {
 
             }
         };
-        UnityAds.initialize(activity, gameId, debugMode, listener);
+        UnityAds.initialize(activity, gameAppId, debugMode, listener);
         MasterAdsHelper.initializeAds(activity, pos);
     }
     public static void debugMode(Boolean debug) {
@@ -69,6 +70,7 @@ public class AdsHelper {
     public static void showBanner(Activity activity, RelativeLayout layout, String metaId) {
         unityBanner = new BannerView(activity, metaId, new UnityBannerSize(320, 50));
         unityBanner.load();
+        directData = true;
         layout.addView(unityBanner);
         unityBanner.setListener(new BannerView.Listener() {
             @Override
@@ -79,6 +81,7 @@ public class AdsHelper {
         });
     }
     public static void loadInterstitial(Activity activity, String admobId) {
+        directData = true;
         IUnityAdsLoadListener listener = new IUnityAdsLoadListener() {
             @Override
             public void onUnityAdsAdLoaded(String placementId) {

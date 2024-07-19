@@ -39,6 +39,7 @@ dependencies {
     androidTestImplementation(libs.espresso.core)
     implementation (libs.masterads)
     implementation (libs.unity.ads)
+    implementation (libs.gson)
 }
 android {
     publishing {

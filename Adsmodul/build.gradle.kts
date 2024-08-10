@@ -40,7 +40,9 @@ dependencies {
     implementation (libs.masterads)
     implementation (libs.unity.ads)
     implementation (libs.gson)
-}
+    implementation(libs.play.services.ads)
+
+    }
 android {
     publishing {
         singleVariant("release") {
